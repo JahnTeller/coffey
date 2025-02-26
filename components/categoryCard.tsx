@@ -1,13 +1,5 @@
-import Link from "next/link";
 import React from "react";
 import { Database } from "@/database.types";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import Image from "next/image";
 
 export default function CategoryCard(
