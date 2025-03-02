@@ -2,7 +2,6 @@
 import React from "react";
 import { Database } from "@/database.types";
 import Image from "next/image";
-import Link from "next/link";
 
 type CategoryCardProps = {
   category: Database["public"]["Tables"]["drinkcategory"]["Row"];

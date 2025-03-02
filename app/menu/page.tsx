@@ -51,13 +51,12 @@ export default function Page() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const categoriesResponse = await fetch(
-          "http://localhost:3000/api/category"
-        );
+        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+        const categoriesResponse = await fetch(`${baseUrl}/category`);
         const categoriesData = await categoriesResponse.json();
         setCategories(categoriesData);
 
-        const drinksResponse = await fetch("http://localhost:3000/api/drink");
+        const drinksResponse = await fetch(`${baseUrl}/drink`);
         const drinksData = await drinksResponse.json();
         setDrinks(drinksData);
       } catch (error) {
@@ -75,8 +74,6 @@ export default function Page() {
       table: "table01",
     },
   });
-
-  const watchedDrinks = useWatch({ control: form.control, name: "drinks" });
 
   useEffect(() => {
     form.setValue("drinks", selectedDrinks);
