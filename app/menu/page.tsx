@@ -51,7 +51,7 @@ export default function Page() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+        const baseUrl = `${window.location.protocol}//${window.location.host}`;
         const categoriesResponse = await fetch(`${baseUrl}/category`);
         const categoriesData = await categoriesResponse.json();
         setCategories(categoriesData);
