@@ -5,7 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useEffect, useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, useWatch } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
@@ -145,7 +145,7 @@ export default function Page() {
               <FormField
                 control={form.control}
                 name="drinks"
-                render={({ field }) => (
+                render={({}) => (
                   <FormItem>
                     <FormControl>
                       <div className="flex flex-col gap-2">
