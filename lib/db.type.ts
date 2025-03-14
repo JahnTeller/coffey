@@ -45,10 +45,16 @@ export type Order = {
       name: string;
       price: number;
     };
-    drink_id: number;
     order_id: number;
   }[];
   staff_id: string;
   status: string;
   table_number: number;
+};
+export type OrderDetail = {
+  id: number;
+  note: string;
+  quantity: number;
+  drink_id: number;
+  order_id: number;
 };

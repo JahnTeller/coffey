@@ -459,7 +459,7 @@ export default function OrderPage() {
       return {
         ...prev,
         order_detail: prev.order_detail.map((item) =>
-          item.drink_id === drinkId ? { ...item, [field]: value } : item
+          item.drink.id === drinkId ? { ...item, [field]: value } : item
         ),
       };
     });
@@ -496,7 +496,7 @@ export default function OrderPage() {
       return {
         ...prev,
         order_detail: prev.order_detail.filter(
-          (item) => item.drink_id !== drinkId
+          (item) => item.drink.id !== drinkId
         ),
       };
     });
@@ -778,7 +778,7 @@ export default function OrderPage() {
                                 <Label>Danh sách món</Label>
                                 {editingOrder?.order_detail.map((item) => (
                                   <div
-                                    key={item.drink_id}
+                                    key={item.drink.id}
                                     className="space-y-2"
                                   >
                                     <p className="font-medium">
@@ -791,7 +791,7 @@ export default function OrderPage() {
                                         value={item.quantity}
                                         onChange={(e) =>
                                           handleDrinkChange(
-                                            item.drink_id,
+                                            item.drink.id,
                                             "quantity",
                                             parseInt(e.target.value)
                                           )
@@ -801,7 +801,7 @@ export default function OrderPage() {
                                         value={item.note}
                                         onChange={(e) =>
                                           handleDrinkChange(
-                                            item.drink_id,
+                                            item.drink.id,
                                             "note",
                                             e.target.value
                                           )
@@ -810,7 +810,7 @@ export default function OrderPage() {
                                       <Button
                                         variant="destructive"
                                         onClick={() =>
-                                          handleRemoveDrink(item.drink_id)
+                                          handleRemoveDrink(item.drink.id)
                                         }
                                       >
                                         Xóa
