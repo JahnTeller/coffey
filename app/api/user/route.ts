@@ -1,4 +1,3 @@
-import { NextResponse, NextRequest } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { currentUser } from "@clerk/nextjs/server";
 
@@ -33,7 +32,10 @@ export async function GET() {
     // If there's an error fetching staff data, return the error
     if (staffError) {
       return new Response(
-        JSON.stringify({ error: "Failed to fetch staff data", details: staffError }),
+        JSON.stringify({
+          error: "Failed to fetch staff data",
+          details: staffError,
+        }),
         { status: 500 }
       );
     }

@@ -19,7 +19,7 @@ export async function PUT(request: NextRequest) {
   }
 
   // Fetch the staff role for the current user
-  const { data: staff, error: staffError } = await supabase
+  const { error: staffError } = await supabase
     .from("staff")
     .select("role")
     .eq("userId", user.id)

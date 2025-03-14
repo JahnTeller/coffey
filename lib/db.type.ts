@@ -52,3 +52,4 @@ export type Order = {
   status: string;
   table_number: number;
 };
+export type OrderDetail = {};

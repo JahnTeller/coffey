@@ -151,7 +151,7 @@ export default function Home() {
           body: JSON.stringify(values),
         }
       );
-      const result = await response.json();
+      // const result = await response.json();
 
       toast.success("Đặt món thành công 🎉", {
         description: "Đơn hàng đã được ghi nhận thành công!",

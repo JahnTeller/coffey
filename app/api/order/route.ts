@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { currentUser } from "@clerk/nextjs/server";
-import { table } from "console";
+import { Order } from "@/lib/db.type";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
       }
 
       // Create order details
-      const orderDetails = drinks.map((drink: any) => ({
+      const orderDetails: Order["order_detail"] = drinks.map((drink: any) => ({
         order_id: order.id,
         drink_id: parseInt(drink.id, 10),
         quantity: drink.quantity,
@@ -162,7 +162,7 @@ export async function PUT(request: NextRequest) {
   }
 
   // Fetch the staff role for the current user
-  const { data: staff, error: staffError } = await supabase
+  const { error: staffError } = await supabase
     .from("staff")
     .select("role")
     .eq("userId", user.id)
